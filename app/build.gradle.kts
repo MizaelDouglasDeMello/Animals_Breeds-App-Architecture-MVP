@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id ("kotlin-parcelize")
 }
 
 android {
@@ -40,8 +41,10 @@ android {
 
 dependencies {
 
+    implementation(libs.logging.interceptor)
+    implementation (libs.converter.gson)
     implementation(libs.retrofit)
-
+    implementation (libs.picasso)
     implementation(libs.gson)
 
     implementation(libs.androidx.core.ktx)

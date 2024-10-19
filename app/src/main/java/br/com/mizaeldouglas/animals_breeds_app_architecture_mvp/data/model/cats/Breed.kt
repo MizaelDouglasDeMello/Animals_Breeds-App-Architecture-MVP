@@ -1,5 +1,8 @@
 package br.com.mizaeldouglas.animals_breeds_app_architecture_mvp.data.model.cats
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Breed(
     val adaptability: Int,
     val affection_level: Int,
@@ -38,4 +41,4 @@ data class Breed(
     val vocalisation: Int,
     val weight: Weight,
     val wikipedia_url: String
-)
+): Parcelable

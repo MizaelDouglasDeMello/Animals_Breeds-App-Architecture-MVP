@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtCatsListing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -39,36 +39,45 @@
         android:text="Cats Listing"
         android:textSize="34sp"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imgBg" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgBg"
         android:layout_width="375dp"
         android:layout_height="240dp"
         android:layout_marginTop="24dp"
         android:adjustViewBounds="false"
         android:src="@drawable/cats3"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvListAnimals"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:itemCount="20"
-        tools:layoutManager="GridLayoutManager"
-        tools:listitem="@layout/item_animals"
-        tools:spanCount="3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCatsListing">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvListAnimals"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            tools:itemCount="20"
+            tools:layoutManager="GridLayoutManager"
+            tools:listitem="@layout/item_animals"
+            tools:spanCount="3"
+            tools:visibility="gone" />
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -78,7 +87,8 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/rvListAnimals"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
